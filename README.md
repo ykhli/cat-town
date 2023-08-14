@@ -2,13 +2,10 @@
 
 A C(h)atGPT-powered simulation with cats. Inspired by the research paper [_Generative Agents: Interactive Simulacra of Human Behavior_](https://arxiv.org/pdf/2304.03442.pdf).
 
-<img width="1440" alt="Screen Shot 2023-08-14 at 10 03 17 AM" src="https://github.com/ykhli/cat-town/assets/3489963/b1a9a517-8602-455f-9d02-cd117728d333">
-
 [🐱 Live Demo](https://cat-town.fly.dev/)
 
 [Join our community Discord: AI Stack Devs](https://discord.gg/PQUmTBTGmT)
-
-<img width="1463" alt="Screen Shot 2023-08-14 at 8 56 17 AM" src="https://github.com/ykhli/cat-town/assets/3489963/e126f57a-3e5b-4de3-a010-c2c3c4ccafd0">
+<img width="1452" alt="Screen Shot 2023-08-14 at 10 04 08 AM" src="https://github.com/ykhli/cat-town/assets/3489963/528ae3cd-c0f8-4835-a00d-a7db51f68b1b">
 
 This project was forked and customized based on [AI-town](https://github.com/a16z-infra/AI-town).
 

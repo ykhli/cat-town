@@ -5,8 +5,8 @@ import localFont from 'next/font/local';
 import clsx from 'clsx';
 
 export const metadata = {
-  title: 'AI Town',
-  description: 'A virtual town where AI characters live, chat and socialize',
+  title: 'Cat Town',
+  description: 'A virtual town where cats live, chat and socialize',
 };
 
 const fontDisplay = localFont({

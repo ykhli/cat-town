@@ -12,6 +12,7 @@ import { handleAgentInteraction } from './agent';
 import schema from './schema';
 import { findRoute, makeSparsePath } from './lib/routing';
 import { deleteAllVectors } from './lib/pinecone';
+import { tiledim, objmap, tilefiledim, bgtiles, tilesetpath } from './maps/firstmap';
 import { cronJobs } from 'convex/server';
 
 export const converge = internalMutation({
@@ -28,6 +29,19 @@ export const converge = internalMutation({
       }
     }
   },
+});
+
+export const createMap = internalMutation({
+  args: {},
+  handler: async (ctx, args) => {
+    const mapId = await ctx.db.insert('maps', {
+      tileSetUrl: tilesetpath,
+      tileSetDim: tilefiledim,
+      tileDim: tiledim,
+      bgTiles: bgtiles,
+      objectTiles: objmap,
+    });
+  }
 });
 
 export const stopThinking = internalMutation({

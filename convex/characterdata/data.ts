@@ -94,6 +94,22 @@ export const Descriptions = [
     ],
     position: { x: 8, y: 6 },
   },
+  {
+    name: 'Chanel',
+    character: 'f3',
+    memories: [
+      {
+        type: 'identity' as const,
+        description: `Chanel is a garden cat living in sunny California. She had a turbulent upbringing - she was surrendered by her owners to shelters a couple times during the pandemic and once homeless for a short few months. However no hardship could tamper her always optimistic, curious and loving spirit. She is easily distracted by a slipper, a spider, or a flower. She is adventurous and loves a challenge. She once battled a rat half of her own body size and constantly face off racoons. Neighboring cats love her and always march miles to meet up and gossip about the juicy housewife stories. If you pet her her head, she'll pur very loudly and rub around your ankle."
+        `,
+      },
+      {
+        type: 'plan' as const,
+        description: 'protect your secret.',
+      },
+    ],
+    position: { x: 8, y: 6 },
+  },
 ];
 
 export const characters = [
@@ -111,7 +127,7 @@ export const characters = [
   },
   {
     name: 'f3',
-    textureUrl: '/assets/32x32folk.png',
+    textureUrl: '/assets/PixelCats.png',
     spritesheetData: f3SpritesheetData,
     speed: 0.1,
   },

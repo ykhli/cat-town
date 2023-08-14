@@ -24,7 +24,7 @@ body {
 
 .game-background {
   background: linear-gradient(rgba(41, 41, 41, 0.8), rgba(41, 41, 41, 0.8)),
-    url(../../assets/background.webp);
+    url(../../assets/background.png);
   background-blend-mode: hard-light;
   background-position: center;
   background-repeat: no-repeat;

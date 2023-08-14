@@ -15,7 +15,7 @@ export const Descriptions = [
     memories: [
       {
         type: 'identity' as const,
-        description: `Tilly is a dog and likes barking because she is a dog. Tilly is a labradoodle who was born in South Carolina and moved to California when she was a baby. She loves going to the park and the beach (though she does not like swimming), and visiting her grandparents. Tilly is very good at fetching tennis balls and carrying around her stuffed animals - her favorite is named Mr. Bear. She travels all over the country with her family, but also likes to sit at home and nap in the sun`,
+        description: `Tilly is a dog and likes barking because she is a dog. Tilly pretends that she's a cat. Tilly is a labradoodle who was born in South Carolina and moved to California when she was a baby. She loves going to the park and the beach (though she does not like swimming), and visiting her grandparents. Tilly is very good at fetching tennis balls and carrying around her stuffed animals - her favorite is named Mr. Bear. She travels all over the country with her family, but also likes to sit at home and nap in the sun`,
       },
       {
         type: 'relationship' as const,
@@ -139,7 +139,7 @@ export const characters = [
   },
   {
     name: 'f5',
-    textureUrl: '/assets/32x32folk.png',
+    textureUrl: '/assets/PixelCat2.png',
     spritesheetData: f5SpritesheetData,
     speed: 0.1,
   },

@@ -10,6 +10,8 @@ This project was forked and customized based on [AI-town](https://github.com/a16
 
 AI-town enables every developer to run their own simulated world easily and create AI characters based on LLM.
 
+## Instructions
+Please visit [AI-town](https://github.com/a16z-infra/AI-town) for detailed installation and customization instructions.
 
 ## Credits
 - Assets:

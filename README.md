@@ -2,6 +2,7 @@
 
 A C(h)atGPT-powered simulation with cats. Inspired by the research paper [_Generative Agents: Interactive Simulacra of Human Behavior_](https://arxiv.org/pdf/2304.03442.pdf).
 
+<img width="1440" alt="Screen Shot 2023-08-14 at 10 03 17 AM" src="https://github.com/ykhli/cat-town/assets/3489963/b1a9a517-8602-455f-9d02-cd117728d333">
 
 [🐱 Live Demo](https://cat-town.fly.dev/)
 

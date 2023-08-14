@@ -24,12 +24,17 @@ export async function startConversation(
   const memories = await memory.accessMemories(player.id, embedding);
 
   const convoMemories = filterMemoriesType(['conversation'], memories);
+  const animal = player.name === 'Tilly' ? 'dog' : 'cat';
 
   const prompt: LLMMessage[] = [
     {
       role: 'user',
+      content: `You are a ${animal} whose name is ${player.name}. Talk as if you are a ${animal}. Reference information provided to you in the conversation`,
+    },
+    {
+      role: 'user',
       content:
-        `You are ${player.name}. You just saw ${newFriendsNames}. You should greet them and start a conversation with them. Below are some of your memories about ${newFriendsNames}:` +
+        `You just saw ${newFriendsNames}. You should greet them and start a conversation with them. Below are some of your memories about ${newFriendsNames}:` +
         //relationships.map((r) => r.relationship).join('\n') +
         convoMemories.map((r) => r.memory.description).join('\n') +
         `\n${player.name}:`,
@@ -123,7 +128,11 @@ export async function converse(
     .map((r) => r.memory.description)
     .join('\n');
 
-  let prefixPrompt = `Your name is ${player.name}. About you: ${player.identity}.\n`;
+  const animal = player.name === 'Tilly' ? 'dog' : 'cat';
+
+  let prefixPrompt = `You are a ${animal} whose name is ${player.name}. Talk as if you are a ${animal}. 
+  DO NOT use complex phrases humans would use.`;
+  prefixPrompt += ` About you: ${player.identity}.\n`;
   if (relevantReflections.length > 0) {
     prefixPrompt += relevantReflections;
     console.log('relevantReflections', relevantReflections);

@@ -1,5 +1,8 @@
 # Cat Town 🐱
 
+A GPT-powered simulation with cats. Inspired by the research paper [_Generative Agents: Interactive Simulacra of Human Behavior_](https://arxiv.org/pdf/2304.03442.pdf).
+
+
 [🐱 Live Demo](https://cat-town.fly.dev/)
 
 [Join our community Discord: AI Stack Devs](https://discord.gg/PQUmTBTGmT)

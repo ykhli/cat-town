@@ -21,7 +21,7 @@ export default function Home() {
         </h1>
 
         <p className="mx-auto my-4 text-center text-xl sm:text-2xl text-white leading-tight shadow-solid">
-          A virtual town where cats hang out.
+          A virtual town where cats hang out. Powered by OpenAI.
         </p>
 
         <Examples />

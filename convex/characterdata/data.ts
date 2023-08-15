@@ -110,6 +110,53 @@ export const Descriptions = [
     ],
     position: { x: 8, y: 6 },
   },
+  {
+    name: 'Murphy',
+    character: 'f7',
+    memories: [
+      {
+        type: 'identity' as const,
+        description: `Murphy is a fat gray cat. Murphy is down at least 3 lives after strangling himself, poisoning himself and falling out of a 9 story window
+        Murphy's favorite foods are barbecue sauce and water out of cups. 
+        `,
+      },
+      {
+        type: 'relationship' as const,
+        description:
+          'Miles is your brother. You like him because he is your brother. But sometimes you fight with him.',
+        playerName: 'Miles',
+      },
+      {
+        type: 'plan' as const,
+        description: 'Preserve the remaining 3 lives.',
+      },
+    ],
+    position: { x: 18, y: 6 },
+  },
+  {
+    name: 'Miles',
+    character: 'f8',
+    memories: [
+      {
+        type: 'identity' as const,
+        description: `Miles is the dumb tiny orange cat. 
+        Miles is named after Lil Yachty and he doesn't know how to lie down on his right side.
+        Miles favorite foods are Soylent wrappers (pre-2019 packaging change) and ziploc bags
+        `,
+      },
+      {
+        type: 'relationship' as const,
+        description:
+          'Murphy is your brother. You like him because he is your brother. But sometimes you fight with him.',
+        playerName: 'Murphy',
+      },
+      {
+        type: 'plan' as const,
+        description: 'Find Soylent wrappers to eat.',
+      },
+    ],
+    position: { x: 11, y: 6 },
+  },
 ];
 
 export const characters = [
@@ -127,7 +174,7 @@ export const characters = [
   },
   {
     name: 'f3',
-    textureUrl: '/assets/PixelCats.png',
+    textureUrl: '/assets/PixelCatSiamese.png',
     spritesheetData: f3SpritesheetData,
     speed: 0.1,
   },
@@ -151,13 +198,13 @@ export const characters = [
   },
   {
     name: 'f7',
-    textureUrl: '/assets/32x32folk.png',
+    textureUrl: '/assets/PixelCatGrey.png',
     spritesheetData: f7SpritesheetData,
     speed: 0.1,
   },
   {
     name: 'f8',
-    textureUrl: '/assets/32x32folk.png',
+    textureUrl: '/assets/PixelCatOrange.png',
     spritesheetData: f8SpritesheetData,
     speed: 0.1,
   },

@@ -24,6 +24,7 @@ import type * as characterdata_spritesheets_f5 from "../characterdata/spriteshee
 import type * as characterdata_spritesheets_f6 from "../characterdata/spritesheets/f6";
 import type * as characterdata_spritesheets_f7 from "../characterdata/spritesheets/f7";
 import type * as characterdata_spritesheets_f8 from "../characterdata/spritesheets/f8";
+import type * as characterdata_spritesheets_f9 from "../characterdata/spritesheets/f9";
 import type * as characterdata_spritesheets_p1 from "../characterdata/spritesheets/p1";
 import type * as characterdata_spritesheets_p2 from "../characterdata/spritesheets/p2";
 import type * as characterdata_spritesheets_p3 from "../characterdata/spritesheets/p3";
@@ -66,6 +67,7 @@ declare const fullApi: ApiFromModules<{
   "characterdata/spritesheets/f6": typeof characterdata_spritesheets_f6;
   "characterdata/spritesheets/f7": typeof characterdata_spritesheets_f7;
   "characterdata/spritesheets/f8": typeof characterdata_spritesheets_f8;
+  "characterdata/spritesheets/f9": typeof characterdata_spritesheets_f9;
   "characterdata/spritesheets/p1": typeof characterdata_spritesheets_p1;
   "characterdata/spritesheets/p2": typeof characterdata_spritesheets_p2;
   "characterdata/spritesheets/p3": typeof characterdata_spritesheets_p3;

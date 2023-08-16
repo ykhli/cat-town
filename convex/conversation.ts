@@ -112,19 +112,15 @@ export async function converse(
   const { embedding } = await fetchEmbedding(lastMessage ? lastMessage : '');
   const memories = await memory.accessMemories(player.id, embedding);
   const conversationMemories = filterMemoriesType(['conversation'], memories);
-  const reflectionMemories = filterMemoriesType(['reflection'], memories);
+  const reflectionMemories = filterMemoriesType(['reflection'], memories).slice(0, 5);
   const lastConversationTs = conversationMemories[0]?.memory._creationTime;
 
   const stop = nearbyPlayers.join(':');
-  const relevantReflections: string =
-    reflectionMemories.length > 0
-      ? reflectionMemories
-          .slice(0, 2)
-          .map((r) => r.memory.description)
-          .join('\n')
-      : '';
-  const relevantMemories: string = conversationMemories
-    .slice(0, 2) // only use the first 2 memories
+  const relevantReflections: string = reflectionMemories
+    .map((r) => r.memory.description)
+    .join('\n');
+    .join('\n');
+  const relevantReflections: string = reflectionMemories
     .map((r) => r.memory.description)
     .join('\n');
 
@@ -147,6 +143,7 @@ export async function converse(
   prefixPrompt += `Last time you chatted with some of ${nearbyPlayersNames} it was ${lastConversationTs}. It's now ${Date.now()}. You can cut this conversation short if you talked to this group of people within the last day. \n}`;
 
   prefixPrompt += `Below are relevant memories to this conversation you are having right now: ${relevantMemories}\n`;
+  prefixPrompt += `Below are your recent reflections: ${relevantReflections}\n`;
 
   prefixPrompt +=
     'Below are the current chat history between you and the other folks mentioned above. DO NOT greet the other people more than once. Only greet ONCE. Do not use the word Hey too often. Response should be brief and within 200 characters: \n';

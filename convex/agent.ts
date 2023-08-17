@@ -8,7 +8,7 @@ import { Id } from './_generated/dataModel';
 
 import { ActionCtx, internalAction } from './_generated/server';
 import { MemoryDB } from './lib/memory';
-import { sleep } from './lib/utils';
+// Removed import of sleep function
 import { Message, Player } from './schema';
 import {
   chatHistoryFromMessages,
@@ -20,6 +20,11 @@ import {
 import { getNearbyPlayers } from './lib/physics';
 import { CONVERSATION_TIME_LIMIT } from './config';
 const CONVERSATION_DELAY = 1000; // Delay in milliseconds
+
+// Created a new delay function
+function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 export const runAgentBatch = internalAction({
   args: {
@@ -239,7 +244,7 @@ export async function handleAgentInteraction(
 
     if (message) {
       messages.push(message);
-      await sleep(CONVERSATION_DELAY);
+      await delay(CONVERSATION_DELAY); // Replaced sleep function with delay function
     }
   }
 

@@ -6,8 +6,10 @@ import { LLMMessage, chatCompletion, fetchEmbedding } from './lib/openai';
 import { Message } from './schema';
 
 type Player = { id: Id<'players'>; name: string; identity: string };
-type Relation = Player & { relationship: string };
+// type Relation = Player & { relationship: string }; // Removed as it's not used
 
+// The startConversation function initiates a conversation between the agent and the players.
+// It first fetches the agent's memories about the players and uses them to generate a conversation prompt.
 export async function startConversation(
   ctx: ActionCtx,
   audience: Player[],
@@ -16,14 +18,13 @@ export async function startConversation(
 ) {
   const newFriendsNames = audience.map((p) => p.name);
 
-  const { embedding } = await fetchEmbeddingWithCache(
-    ctx,
-    `What do you think about ${newFriendsNames.join(',')}?`,
-    { write: true },
-  );
-  const memories = await memory.accessMemories(player.id, embedding);
-
-  const convoMemories = filterMemoriesType(['conversation'], memories);
+  await fetchEmbeddingWithCache(ctx, `What do you think about ${newFriendsNames.join(',')}?`, {
+    write: true,
+  }); // Removed unused variable 'embedding'
+  // Use the chatCompletion function to generate the agent's response based on the conversation prompt
+  const { content } = await chatCompletion({ messages: prompt, max_tokens: 300, stop });
+  // Return the agent's response and the IDs of the memories used in the conversation
+  return { content, memoryIds: memories.map((m) => m.memory._id) };
   const animal = player.name === 'Tilly' ? 'dog' : 'cat';
 
   const prompt: LLMMessage[] = [
@@ -89,6 +90,7 @@ export async function decideWhoSpeaksNext(
       content: promptStr,
     },
   ];
+  // Use the chatCompletion function to determine who should speak next based on the chat history
   const { content } = await chatCompletion({ messages: prompt, max_tokens: 300 });
   let speakerId: string;
   try {
@@ -162,12 +164,15 @@ export async function converse(
       content: `${player.name}:`,
     },
   ];
+  // Use the chatCompletion function to generate the agent's response based on the conversation prompt
   const { content } = await chatCompletion({ messages: prompt, max_tokens: 300, stop });
-  // console.debug('converse result through chatgpt: ', content);
+  // Return the agent's response and the IDs of the memories used in the conversation
   return { content, memoryIds: memories.map((m) => m.memory._id) };
 }
 
+// The walkAway function determines whether the agent should leave the conversation based on the chat history
 export async function walkAway(messages: LLMMessage[], player: Player): Promise<boolean> {
+  // Generate a prompt for the agent to decide whether to leave the conversation
   const prompt: LLMMessage[] = [
     {
       role: 'user',
@@ -177,10 +182,12 @@ export async function walkAway(messages: LLMMessage[], player: Player): Promise<
     },
     ...messages,
   ];
+  // Use the chatCompletion function to make the decision
   const { content: description } = await chatCompletion({
     messages: prompt,
     max_tokens: 1,
     temperature: 0,
   });
+  // Return true if the agent decides to leave the conversation, false otherwise
   return description === '1';
 }

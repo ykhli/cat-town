@@ -18,11 +18,9 @@ export async function startConversation(
 ) {
   const newFriendsNames = audience.map((p) => p.name);
 
-  await fetchEmbeddingWithCache(
-    ctx,
-    `What do you think about ${newFriendsNames.join(',')}?`,
-    { write: true },
-  ); // Removed unused variable 'embedding'
+  await fetchEmbeddingWithCache(ctx, `What do you think about ${newFriendsNames.join(',')}?`, {
+    write: true,
+  }); // Removed unused variable 'embedding'
   // Use the chatCompletion function to generate the agent's response based on the conversation prompt
   const { content } = await chatCompletion({ messages: prompt, max_tokens: 300, stop });
   // Return the agent's response and the IDs of the memories used in the conversation

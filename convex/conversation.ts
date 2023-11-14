@@ -6,7 +6,7 @@ import { LLMMessage, chatCompletion, fetchEmbedding } from './lib/openai';
 import { Message } from './schema';
 
 type Player = { id: Id<'players'>; name: string; identity: string };
-type Relation = Player & { relationship: string };
+// type Relation = Player & { relationship: string }; // Removed as it's not used
 
 // The startConversation function initiates a conversation between the agent and the players.
 // It first fetches the agent's memories about the players and uses them to generate a conversation prompt.
@@ -18,11 +18,11 @@ export async function startConversation(
 ) {
   const newFriendsNames = audience.map((p) => p.name);
 
-  const { embedding } = await fetchEmbeddingWithCache(
+  await fetchEmbeddingWithCache(
     ctx,
     `What do you think about ${newFriendsNames.join(',')}?`,
     { write: true },
-  );
+  ); // Removed unused variable 'embedding'
   // Use the chatCompletion function to generate the agent's response based on the conversation prompt
   const { content } = await chatCompletion({ messages: prompt, max_tokens: 300, stop });
   // Return the agent's response and the IDs of the memories used in the conversation
